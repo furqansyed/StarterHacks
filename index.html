@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<title>Study Buddy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="login.html" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logout</a>
+  <a href="https://www.google.ca/maps/@43.4692828,-80.5439124,15.75z?hl=en" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Map"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">One new study buddy request</a>
+      <a href="#" class="w3-bar-item w3-button">Reminder: Study session March 7th, 2018 at 4:00pm</a>
+      <a href="#" class="w3-bar-item w3-button">Reminder: Chemistry Assignment Due March 8th, 2018 at 11:59pm</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+    <img src="data:image/png;base64,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" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+  </a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">Matthew Willis</h4>
+         <p class="w3-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADjCAMAAADdXVr2AAABIFBMVEX////81LREIhcgE24dDmwsIHb/27r/17f/3LsxAAAAAGlCHxQAAGQvAAAyAAA0AAA0CgA7Fgo6FAjDn4b/3bj80a81DAA7EQAAAGYsAAD49vYzBgA3DwBAGw04CgD80a6vpaLwyarivJ/q5+bSrZLLydqqiHJ/Xk3Kw8FPLiKPgHyGZlRAMXZsTD3Zs5hhQTOkgm3h3Nv96Nf+8un93sa/t7V5Y4aTeo6fko9dSn6tqsSEc2/h4Oq1knuXdWIXCGyYlLZ3cqBWNil7aGJrVU9aVI22mJtgR0Cxr8hwa5vQrqSliZWGganV1OFBOYA4L3xMRYbGvrxtWYOGborcuKjGpaBfTX7Bv9NMPHmOdY6gnbu+raRYPTXm4uGlmZYUAAAzIJJkAAAPEklEQVR4nO2dC1cayRLHGcB5NQjDGwbUQSIiAdRozMYARs1js2Y1N9ldN2uy3/9b3O7peT+YEbqn2Zz8z73nbNyszY+qrqru6a5JpX7qp37qh1Tr6PTF+dW7y8HDu6vzFzun+99aLdafiZT2X7yrFwr1eqcDAOh06vWtQmGzAB6uIej+N9afbiW1Pp0XNusdkPYJkiJQSepcH5zusv6cS+novF6o+8k8nJ16YTN9fvof89bWzkO+HmC2YMZ6IX+989/x1N2DLTUum6HOlvTw4oj1B4+jo6tmbMO5jSiBg33Wnz5C+9dSZwk2k3Cz832N5+HpwwpwmHBra4c1RYh20oUV4XTAwsM6hpn9TmGZKRegTv6UNYxPp01CcEjNF6xxPNpvkoODktaL7xspxzSVXyu+AYGY4pa0RvPvvE2aDs6/tSliPknk6dKdS9ZYhlqkJx5W4TtrMKzzyIXPcsqvRX1GOCfYqp+zRkO6JB41TW2uQXV2WqBFl65fsYZLpdJU4gpWk/lGzA4940HzHbDGC9oJIyawxTh4fqJpvHSa9dr2OjJsAtBRSu1araSYKpWKbfgnEMPuYMCU7lt+EZfSLkoSmPRne9MexwkCD/8H/89xvenerD+6VCUJUi+klJhWni9CChag1IrpyWza63KQCDM5JOAfctq4fDi8VKR2KCPb1B64xa4UpdGsrAmiD8snAYKKWnc6vGzWghELDIOLP6UDRRrMelw0mNeYWnk2kEp+wi2GhfU7T2ABRTAbwykWn8zByAvjw4GkeL+vDjO6I3dgAdKkvCSbSciPh+2SxzuZLdsPnIEFqJPxKmwGoajN3BbsXLPCcz5LUDplcWU4bEJtuOmcg3lGhef+pv0Z2iONCJwucTxwGJBV5eJIekp/db90SOD6Nh8r73yw4iYYEGTTxQ9s/2ST+nbtuNne40njlWs2HpOnfo7FQl4jTAdlF0RsMrs99ZShSJyOn1mzj83ks0sWqUcyrmAJY2tvGAAWeFbWAwPydDA7XFreKTHIfLtW1lMOSQcWJH7Pqs5YxJZ9K7LkuzSsJ3Qt72SR2He2LN8kH1iQ+JHpnXUGD/uswFk6pGE8iDc1H6t1GGznXpmBU6Lim9A7NbNu6LxLHs/cI6MTN5Gs2AnSyeM9GGMrMxpxE0k4NGInixW7WTQVKeR0A8/K7PXki2oz7eUpwSGZO73JrxlaBh4Y0UkLSKK56iskXraYRQuttIBkpYbk8b5JtKeeY/Ilj3dkjFzTqNFBPtZ44JJWWkASJ4AVHp57Sp8mnrmmZWY9OoshC89YFCX/kNbAa0/pRRY494wNpeTTuhE5aQZOFDpVXJQljmfkPWlMFU+TGNWcLWw9ieDee4C0NquSGu9FbNKEg9IPBbHAw7vkNZqBE4ZOfcnHYidQX86CAV08nNdZHP/QNyPAhLL19O0kFpsR+qNZQLVogXj6kojF6Q99I7BDG2+o4zHYCPwHhU5lSBlvhqoy9Z+k4Y65qkJ1HwkL7yZJ1W3uOEk6oYqfn9KtqKH1EB5Iw3+qCgnSccasLxF/LOvBQ0sGMMKDJEV3UuWMtVh7Stk50W6LOcFPkqF7VrVGprseMlZEpotUnyWCd4JH7hUhXpkyHhrEWnQlYr7WNh4ZPeGoUceDCz7VfEazncSy77hqjK3QXs0a69mS+adqEtnhxBiMh+VukepqFu90AmCFryS808KD5W6R0rM9C68rOcv2JHKfORjCUynjcZrk3GtMAs8EQs6panTpOE5y1bUJ4gmwKivRxuM3nXhJOidXwtUgXbxO0s5phBahq1J8rm7hwcDZTzRyGnlPmBYpP0DR8QYATMwHpInkPVxywrUKwqNuvZpjuyqZotMYeAar3bZGl07PexbedhJ0xuTjhzX6NSda74G0OUYyKyLsnfywRPvxHs6tIG2MkdCCCHsn3qOjuwmPorMDLxk6HDv5EcIrUvVOfq/t2AlPaLWeStl4dHcC9T14M/skstrThcyH8ajWLYLW1Df6cd5LzHi6+fDcS6sUF7T42I5RtVQTfEILzcf3S3QPBJoPULD/J1KxWBJw3kOPFqnhCVrR8QUmSQdzn4FH0TuNI2X6PmBSOc/UsTDDePS80ziThDYbqwnGFayTQ3xcj1rsxHET78bxSdOlUuVimqp3mscd891Eo6Yp8wYYrczOG+fl6olPPF3WNZQ6FesJmoqdf8IzuZ74zTxNTcc7Td8EjBp6tcxz6nRWReZZTmYXu602QuHbgQLPi6LAo+4Rvp/zgiiG914QusYdFGZdFaxeLbXgp3wCz/UO+5PBYHCJWmRYhAJqEDG6hD+f9A97XPCdad68o7HJqqWJ1X4t8LC/wPeGNbWkAKSOUmuOyhxyYl4oT5o1paP/XCmppWEvCFC4ZHaHwZB1xS3oXKDYm3jaW4DioAwdtZwuuvt6KNJk7Ju81u09FieSsOwLiqU9D56g9T3dVqGhivl/R9ro33zR22EH5Pve7wcfaEmzObKDtWvhefc7+R5wW05R08O93liD/07r9vaGadXz70HPbUDeul/ziRWeo9eO+1CuOHX1tIDuNxwLVocavZPQeLbpAgRN1xkL/aEzxmPXLMluc+UqzMQ9d1NEqa/5ggeMnn13V8/8niM+4bNkOh67ZkLf7Z4YNaftPHTTwE4ngjh1d7PJO+ynmbeeWXbysmOL4/wO33N/akgXAKd/D+VN199sWvNPsK/NMgucjrLMcW5V0NxhUemHX4ATh+75Vzfjp1mQsey1k3K1gjIvr4sjd0xc+JDF+1WMjODTtczKFM/ZkAbvSfBld8BYvFVhVV6mI+M9b8ePmeI5Jl+6jT+xp11nxD0Hrej62wCf0BHsXjQsrqzbcuLtiYIgztwdqs2ziqGzb+TudFaaoV8ytX8J2yZ6V45Ppx52u7Na2v1xI8578lNPw+7irNs9VO0/s6vJkFxd9BS15mmhFnnmzK5OrF9SVJ2/hGUPPfv+c5iiTi052noEi3H/0Yj2o1H9JPTnk4vEroWeru9bCz9dpHOOo/DYvttmf3Fv3FLESXlfaPGKbXfVKLyoY0t29RVmPbadqSPw0rWFR+X5coRvpgtM6SLx0u0FwcVbfvvFolOLU0dReCDdDbMf3x1E0LEtOVN264gFfCGNOwW+HNAK1yPmXdOju4oDddQN2IzojmK85o11V/FYDf07Ur/MiY6tJJErj6Q4zeQZp724bwoBtdJor6fpeFpvr18vxoGDaY/1Cyd2FpctDsKSqrbBoFNT1ZK3O3OoWHf0j84MHshH/W2WG0lYLaqvm2D/spfoVxYsL+aBM3LNsJIY7sCbOlrwSoZVJbGOLCmzeQQNMX6XBhY972RekiHt0nh/my7GOxGGrii94oxJy1+/aAWXtZh6KWqpbw2Sui5K5luPqZeiZb7mGmQ9XUc03jDIeiPCIRrvh1wb34TrhqVesb5QgEFD3FCdEs/tW2v13uBrwu4JWL4dyy/S7lnYYU3kFtn3s65LxWLrgOTKIc96B9Av7wvPVtA6vJLVK3LTj/krPQNFrPbMr09Gd+qUTHhZR9fUdUBi17MzWEfX1HVFIHw22W//herdytWLtJ4TD6s1iTjrEEm3DttjwWodn1TFYS2aIVzqjDVEiFrHfFW/rz+MOu6wyHaHInfC4rreYrWOhW2zPRs/W3p1VNRPt1a3+eO1QWy9v3l2Uq06Hpzzh0vm96J1X6Ba5Z+9/8p8n/PVy7tcI/fFczLAe9Y/plTXe/y2Nxq5u6+vGLJ9vWs05pmMfOY9urIUnzRz0gkf5Exm3sj9zobw1dffc4gNKrtR8R3JKcc6+eBU0328rvI/Wf/lLAhfXdyabEiy1zsh3zj6UI5TIO+5zqHJ1q+HhLcXiRF+RGzZjEPyZ5/5OL7becT6DxTLbjr+THaOkEWEHxNgu9nwsKHBMz46dCDuMvYBD8V/8izrG6SR26Brwyc3GT+bbr63QfdDuVHMAq098V1P/E0OGCZL0UufvJZzchAbGvep3zsR4DBWgs/PfBeghXnYSNCGN6S99NX7X+Vgu5nm+xB4bFM8bEYGGF9QCTWeTTj/9T0xIz5B0y3MbobmvwSajxN7tYgJGDDtUNhcPFxWRkZ8QoDt9Xyh2SLMx/Ha4rN/ap/z/4eVzwuM5zBidjU3bV1kQ6eb13z3weZDx1LTtTBAgFYI/v/kSww6nVDO3b5fGu6mEcduhuQ/Qg8Vc1PvTWcDTh34b6wj493Po8czv9Zc9uVSdBe5RuxB0De5EUKHAPlyX1Fd58KB0pYm5cCWEZVFcSVg4Mb88Rb8ePsouAwqrEPcE7so15uN8pJaa7fbtaKaB/1pN7gfhhAVV/yAubtHxtGLXHz/sPj8laebUOS1Xrk8nZZ7Y2jQ4FYY0NSPcE1T89zXR8C17h5rOn2M+8i+LYKp8L9SOXuUa5rKvYm9OfpKXmqEjPz3AveMKf6P5cbONOSYDvox90jft/k+rNp35/ETz1I291ccuidL02Wy85XfeHb7+IlnKRcjRSxvOyj5fjW8yi9LuqbBF5khVqKDfM9XmX6V5yvRRfOtSBeR/aLo4pSaEXwLy+zW0hPb5vttWb7K3yvTwRJmUfy8W32ApfkI2A5qfhtOd7FMNvdpOb6V552hxuswulc5IgMsM/8E7k8ydAum3+8r5ByX5M9hBWWIeO0pKbpMNhNM95KQ8TIo/z0qv/MfZFLfLFTjIoiOQNS0JWe+xHZQgT8jOTR0z6DqmkxcMZWFEzCeAStf7ok5JpYcEF2IGk8f5D6OAQW4NifomFg5f/IjazykuXzGRa0gKl+ekv5aoRo3PrywbeFVJG+8XeihFe05edPpA3tn31/kwqZDWfnpH6E5oqKdLblujlTDuzR6Q2kgCPhWCCAUKtrftODgvLhz0+0Sn3mWsvL8rOvxUZ7/8FymMOkseYLLS3p4CFD+5S1XMW0IDffbU3qW09Vw75y9oTLDbc1l+c+3XyBihdfe/knVcHg8l3e2qAQWz4iyvHH/+fOtTCdYeuSqXJ4kgJdBW0307WbItW4gn9NZy1VX3yXhL4lq/saB5zuG8J9XdsOmI7VMXyfl7PN2dCoytmrYsYVqUmekhr2je0O3hGAiR+j89UfEs5fsbxrZH04NOzPcZTZ+QKV+6qd+ipn+DzAi5gxpohIVAAAAAElFTkSuQmCC" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Science Student</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Toronto, ON</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 10, 1998</p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Chemistry Study Group</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Chemistry Office Hours</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="http://1.bp.blogspot.com/_HSyZWoBHdDg/S7pL_Th_ncI/AAAAAAAAAc0/OPfhs_PUb_g/s1600/Chpt15+27.JPG" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://ka-perseus-images.s3.amazonaws.com/dd9737ed130c0a9965efa9476715cd9084bc5a1d.svg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://www.rasmus.is/uk/t/F/Su41k03_m02.gif" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="https://upload.wikimedia.org/wikipedia/en/4/49/Boiling_Curve.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://www.crodog.org/chemistry/ch%204%20practice%201.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="http://d2vlcm61l7u1fs.cloudfront.net/media/e5c/e5cff1f7-fb50-4095-a6d8-1aeb084f23c6/phpcHpFls.png" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div>
+            <img src="http://www.b4fa.org/wp-content/uploads/2012/07/Gene-expression1.png" style="width:50%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Courses</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">Chemistry</span>
+            <span class="w3-tag w3-small w3-theme-d4">Biology</span>
+            <span class="w3-tag w3-small w3-theme-d3">Calculus</span>
+            <span class="w3-tag w3-small w3-theme-d2">Physics</span>
+            <span class="w3-tag w3-small w3-theme-d1">Humanities</span>
+            <span class="w3-tag w3-small w3-theme">English</span>
+          </p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>People are looking at your profile. Find out who.</p>
+      </div>
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">Make Post</h6>
+              <p contenteditable="true" class="w3-border w3-padding"></p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSitHXKKaQVBxck66f-sx2F4tdInNwLMnq4EHy98WNc0IImc_UYXg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>John Doe</h4><br>
+        <hr class="w3-clear">
+        <p>I'm lost guys. Anyone know how to do this.</p>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+              <img src="http://simplechemconcepts.com/wp-content/uploads/2008/07/alcohols-and-acids-post-1.jpg" style="width:100%" alt="Chemistry Molecule" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+              <img src="http://1.bp.blogspot.com/-GG-YPkqpdRc/UyuwojE4GbI/AAAAAAAAAfA/Hb4kq2Ibsh8/s1600/org21032014_0000.jpg" style="width:100%" alt="Organic Chemistry" class="w3-margin-bottom">
+          </div>
+        </div>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="data:image/png;base64,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" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">16 min</span>
+        <h4>Melissa Lu</h4><br>
+        <hr class="w3-clear">
+        <p>Does anyone know when the Physics Assignment is due? It's not posted on learn:(</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>  
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="data:image/png;base64,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" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 min</span>
+        <h4>Angie Jocelyn</h4><br>
+        <hr class="w3-clear">
+        <p>Does anyone understand this?? Please help me.</p>
+        <img src="https://s-media-cache-ak0.pinimg.com/originals/f3/0a/cb/f30acbe2135e3f124e1574edea22a5b2.jpg" style="width:100%" class="w3-margin-bottom">
+        <p>Someone tell me too please!!</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="http://www.freeclipart.pw/uploads/2017/06/office-hours-clipart-15.jpeg" alt="Forest" style="width:100%;">
+          <p><strong>Chemistry Office Hours</strong></p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+      
+
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Study Request</p>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-wgbwePPkWnCrjuUwC9EBSCe9yO2DZqu-3lky0Ci1GL3_66m2" alt="Avatar" style="width:50%"><br>
+          <span>Jane Carter</span>
+          <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>Footer</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by <a href="#" target="_blank">Study Buddies</a></p>
+</footer>
+ 
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html> 
